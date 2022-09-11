@@ -1,0 +1,11 @@
+<navbar-comp></navbar-comp>
+<div class="row d-flex m-0">
+  <div class="col-12 d-flex justify-content-center ">
+    <h3 style="font-size: 2rem;border-bottom:1px solid black">{{search | uppercase}}</h3>
+  </div>
+  <div class="col-12 m-0">
+    <pagination-comp [data]="data" *ngIf="!loading"></pagination-comp>
+    <spinner-comp class="d-flex justify-content-center" *ngIf="loading" style="height: 90vh;"></spinner-comp>
+  </div>
+</div>
+<footer-comp></footer-comp>

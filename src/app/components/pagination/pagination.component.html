@@ -1,0 +1,33 @@
+<ng-container style="display:flex; justify-content: center; align-items: center;"
+  *ngFor="let item of data | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+  <div class="row my-5  d-flex justify-content-center">
+    <div class="col-lg-9 col-12">
+      <div class="pagin">
+        <img [src]="item.urlToImage" alt="img" style="width:15rem">
+        <div class="mx-lg-2 mx-md-2 mx-auto">
+          <strong class="text-muted ">{{item.title}}</strong>
+          <p style="font-size: 0.8rem;" class="text-muted">{{item.description.slice(0,100)}}...</p>
+          <p class="text-muted">{{item.author}}</p>
+          <span class="text-muted" style="font-size: 0.8rem; font-weight: 900;">{{item.publishedAt | date: 'shortDate'}}
+            • 3
+            min
+            read ★</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<div class="row d-flex justify-content-center mt-5 text-muted" *ngIf="data.length == 0">
+  No Result
+</div>
+
+<div class="row m-0">
+  <div class="col-12" style="display:flex; justify-content: center;">
+    <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
+      <ngb-pagination [pageSize]="3" [collectionSize]="data.length" [(page)]="page" aria-label="Default pagination">
+      </ngb-pagination>
+      <pre class="text-muted"> Page: {{page}}</pre>
+    </div>
+  </div>
+</div>

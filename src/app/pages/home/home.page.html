@@ -1,0 +1,91 @@
+<navbar-comp></navbar-comp>
+<slider *ngIf="!loading"></slider>
+<div class="row m-0" *ngIf="allNews.length > 0 && !loading">
+
+  <div class="col-lg-7 col-12 mt-5 mx-auto" *ngIf="EditorsPick.length > 0">
+    <h5 class="mb-3 text-muted" style="display:inline-block; border-bottom: 1px solid gray; ">
+      Editor's Pick</h5>
+    <div class="wrapper-editor mx-auto">
+      <div class="pb-3" style="margin-right:1rem; width: 100%;">
+        <img [src]="EditorsPick[0].urlToImage" alt="img" style="width: 23rem; height: 15rem;">
+        <strong class="text-muted"
+          style="width:100%;display:inline-block; margin-top: 1rem;">{{EditorsPick[0].title}}</strong>
+        <p class="text-muted mt-3" style="font-size: 0.8rem;">{{EditorsPick[0].description.slice(0,95)}}...</p>
+        <!-- <p class="text-muted">{{EditorsPick[0].author}}</p> -->
+        <span class="text-muted" style="font-size: 0.8rem; font-weight: 900;">{{EditorsPick[0].publishedAt |
+          date:
+          'shortDate'}}
+          • 4
+          min
+          read ★</span>
+      </div>
+      <div style="width: 100%;">
+        <div style="display: flex;">
+          <img [src]="EditorsPick[1].urlToImage" alt="img" style="width: 8rem; height:7rem;">
+          <div class="mx-2">
+            <strong class="text-muted d-inline-block">{{EditorsPick[1].title.slice(0,65)}}...</strong>
+            <span class="text-muted my-auto" style="font-size: 0.8rem; font-weight: 900;">{{EditorsPick[1].publishedAt |
+              date:
+              'shortDate'}}
+              • 5
+              min
+              read ★</span>
+          </div>
+        </div>
+        <div class="mt-2" style="display: flex;">
+          <img [src]="EditorsPick[2].urlToImage" alt="img" style="width: 8rem; height:7rem;">
+          <div class="mx-2">
+            <strong class="text-muted d-inline-block">{{EditorsPick[2].title.slice(0,65)}}...</strong>
+            <span class="text-muted my-auto" style="font-size: 0.8rem; font-weight: 900;">{{EditorsPick[2].publishedAt |
+              date:
+              'shortDate'}}
+              • 5
+              min
+              read ★</span>
+          </div>
+        </div>
+        <div class="mt-2" style="display: flex;">
+          <img [src]="EditorsPick[3].urlToImage" alt="img" style="width: 8rem; height:7rem;">
+          <div class="mx-2">
+            <strong class="text-muted d-inline-block">{{EditorsPick[3].title.slice(0,65)}}...</strong>
+            <span class="text-muted my-auto" style="font-size: 0.8rem; font-weight: 900;">{{EditorsPick[1].publishedAt |
+              date:
+              'shortDate'}}
+              • 5
+              min
+              read ★</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-12  mt-5 mx-auto" *ngIf="trendingTopics.length > 0">
+    <h5 class="mb-3 text-muted" style=" display:inline-block; border-bottom: 1px solid gray;">Trending</h5>
+    <div class="mb-3" style="display: flex;justify-content:flex-start; align-items:center;"
+      *ngFor="let item of trendingTopics;let i = index; ">
+      <div style="font-size: 1.3rem; margin-right: 1rem; color: gray; opacity: 0.6;">0{{i + 1}}</div>
+      <div class="mx-3">
+        <strong class="text-muted d-inline-block">{{item.title}}</strong>
+        <span class="text-muted my-auto" style="font-size: 0.8rem; font-weight: 900;">{{item.publishedAt |
+          date:
+          'shortDate'}}
+          • 6
+          min
+          read ★</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row m-0">
+  <div class="col-12 justify-content-center m-auto">
+    <div class="m-auto" style="display: flex; justify-content:center; align-items:center;" *ngIf="!loading">
+      <pagination-comp [data]="allNews.slice(3,allNews.length+1)"></pagination-comp>
+    </div>
+  </div>
+</div>
+
+
+<spinner-comp class="d-flex justify-content-center" *ngIf="loading" style="height: 90vh;"></spinner-comp>
+
+<footer-comp></footer-comp>

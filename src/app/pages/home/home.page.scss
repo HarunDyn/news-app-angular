@@ -1,0 +1,17 @@
+.editor-picks{
+display:inline-block;
+border-bottom: 1px solid gray;
+}
+
+.wrapper-editor{
+  display:flex;
+}
+
+
+@media screen and (max-width: 768px) {
+  .wrapper-editor{
+    flex-direction: column;
+  }
+
+
+}

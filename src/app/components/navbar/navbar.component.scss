@@ -1,0 +1,16 @@
+.nav-sticky{
+  position: sticky;
+  top: -1px;
+  left: 0;
+  right: 0;
+  z-index: 130000;
+
+}
+
+.active{
+  a{
+    color: #000;
+    font-size: 1.1rem;
+  }
+  color: #000;
+}
